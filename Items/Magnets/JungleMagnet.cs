@@ -15,30 +15,29 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Will only attract stars. Stars are attracted at far greater range");
             DisplayName.SetDefault("Spore Catcher");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Orange;
-            Item.value = Item.sellPrice(0, 0, 9, 20);
+            item.rare = ItemRarityID.Orange;
+            item.value = Item.sellPrice(0, 0, 9, 20);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Stinger, 2);
             recipe.AddIngredient(ItemID.Vine, 4);
             recipe.AddIngredient(ItemID.JungleSpores, 2);
             recipe.AddTile(TileID.LivingLoom);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

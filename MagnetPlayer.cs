@@ -53,9 +53,9 @@ namespace AssortedAttractors
             if (id == ItemID.SoulofNight || id == ItemID.SoulofLight || id == ItemID.SoulofFlight || id == ItemID.SoulofFright 
                 || id == ItemID.SoulofMight || id == ItemID.SoulofSight || (id <= 3459 && id >= 3456))
                 return true;
-            else if (AssortedAttractors.calamityMod != null && (id == AssortedAttractors.calamityMod.Find<ModItem>("EssenceofChaos").Type 
-                || id == AssortedAttractors.calamityMod.Find<ModItem>("EssenceofCinder").Type || id == AssortedAttractors.calamityMod.Find<ModItem>("EssenceofEleum").Type
-                || id == AssortedAttractors.calamityMod.Find<ModItem>("UnholyEssence").Type))
+            else if (AssortedAttractors.calamityMod != null && (id == AssortedAttractors.calamityMod.ItemType("EssenceofChaos") 
+                || id == AssortedAttractors.calamityMod.ItemType("EssenceofCinder") || id == AssortedAttractors.calamityMod.ItemType("EssenceofEleum")
+                || id == AssortedAttractors.calamityMod.ItemType("UnholyEssence")))
             {
                 return true;
             }
@@ -71,8 +71,8 @@ namespace AssortedAttractors
 
         private bool isEventEssence(int id)
         {
-            if (AssortedAttractors.calamityMod != null && (id == AssortedAttractors.calamityMod.Find<ModItem>("NightmareFuel").Type
-                || id == AssortedAttractors.calamityMod.Find<ModItem>("EndothermicEnergy").Type || id == AssortedAttractors.calamityMod.Find<ModItem>("DarksunFragment").Type))
+            if (AssortedAttractors.calamityMod != null && (id == AssortedAttractors.calamityMod.ItemType("NightmareFuel")
+                || id == AssortedAttractors.calamityMod.ItemType("EndothermicEnergy") || id == AssortedAttractors.calamityMod.ItemType("DarksunFragment")))
                 return true;
             return false;
         }
@@ -85,7 +85,7 @@ namespace AssortedAttractors
 
             for (int j = 0; j < 400; j++)
             {
-                if (!Main.item[j].active || Main.item[j].noGrabDelay != 0 || Main.player[Main.item[j].playerIndexTheItemIsReservedFor] != this.Player || !ItemLoader.CanPickup(Main.item[j], this.Player))
+                if (!Main.item[j].active || Main.item[j].noGrabDelay != 0 || Main.player[Main.item[j].owner] != this.player || !ItemLoader.CanPickup(Main.item[j], this.player))
                 {
                     continue;
                 }
@@ -121,7 +121,7 @@ namespace AssortedAttractors
                     maxSpeed += VoodooMagnet.maxSpeedModifier;
                 }
 
-                if (waterBonus && (this.Player.wet || Main.raining))
+                if (waterBonus && (this.player.wet || Main.raining))
                 {
                     grabRange = Player.defaultItemGrabRange + 2 * magnetGrabRange;
                     speed += 0.2f;
@@ -135,10 +135,9 @@ namespace AssortedAttractors
                     maxSpeed *= 1.5f;
                 }
 
-                ItemLoader.GrabRange(Main.item[j], this.Player, ref grabRange);
+                ItemLoader.GrabRange(Main.item[j], this.player, ref grabRange);
 
-                if (!new Rectangle((int)this.Player.position.X - grabRange, (int)this.Player.position.Y - grabRange, this.Player.width + grabRange * 2, this.Player.height + grabRange * 2).Intersects(new Rectangle((int)Main.item[j].position.X,
-                    (int)Main.item[j].position.Y, Main.item[j].width, Main.item[j].height)) || !this.Player.ItemSpace(Main.item[j]).CanTakeItem)
+                if (!new Rectangle((int)this.player.position.X - grabRange, (int)this.player.position.Y - grabRange, this.player.width + grabRange * 2, this.player.height + grabRange * 2).Intersects(new Rectangle((int)Main.item[j].position.X, (int)Main.item[j].position.Y, Main.item[j].width, Main.item[j].height)) || !this.player.ItemSpace(Main.item[j]))
                 {
                     continue;
                 }
@@ -146,8 +145,8 @@ namespace AssortedAttractors
 
                 //Item grab code
                 {
-                    float distX = this.Player.Center.X - Main.item[j].Center.X;
-                    float distY = this.Player.Center.Y - Main.item[j].Center.Y;
+                    float distX = this.player.Center.X - Main.item[j].Center.X;
+                    float distY = this.player.Center.Y - Main.item[j].Center.Y;
                     float dist = (float)Math.Sqrt(distX * distX + distY * distY);
 
                     //v_new = v * (1 - 1/speed) + relative_dist * maxSpeed

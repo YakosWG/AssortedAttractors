@@ -13,26 +13,24 @@ namespace AssortedAttractors.Items.Magnets
         public static float maxSpeedModifier = 10f;
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Improves attraction of voodoo dolls. Needs another magnet to work!");
             DisplayName.SetDefault("Miniature Voodoo Demon");
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(30, 2));
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(30, 2));
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Orange;
-            Item.value = Item.sellPrice(0, 6, 97, 0);
-            Item.width = 82;
-            Item.height = 94;
+            item.rare = ItemRarityID.Orange;
+            item.value = Item.sellPrice(0, 6, 97, 0);
+            item.width = 82;
+            item.height = 94;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var line = new TooltipLine(Mod, "MagnetInfo", 
+            var line = new TooltipLine(mod, "MagnetInfo", 
                 "Range: +" + rangeModifier
                 + "\nSpeed: +" + speedModifier
                 + "\nMax Speed: +"+ maxSpeedModifier
@@ -42,16 +40,18 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void AddRecipes()
         {
-            Recipe recipe = Recipe.Create(ModContent.ItemType<VoodooMagnet>());
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<SuperheatedMagnet>());
             recipe.AddIngredient(ItemID.TargetDummy);
             recipe.AddTile(TileID.BewitchingTable);
-            recipe.Register();
+
+            recipe.SetResult(ModContent.ItemType<VoodooMagnet>());
+            recipe.AddRecipe();
         }
 
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited) //This magnet stacks with others because of its unique effect
+            if (!this.item.favorited) //This magnet stacks with others because of its unique effect
                 return;
 
             player.GetModPlayer<MagnetPlayer>().voodooMagnet = true;

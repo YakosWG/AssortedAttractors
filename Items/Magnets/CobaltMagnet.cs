@@ -16,29 +16,29 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
+            Tooltip.SetDefault(String.Empty);
             Tooltip.SetDefault("Stars are attracted at far greater range");           
             DisplayName.SetDefault("Jishaku");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.LightRed;
-            Item.value = Item.sellPrice(0, 5, 0, 0);
+            item.rare = ItemRarityID.LightRed;
+            item.value = Item.sellPrice(0, 5, 0, 0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.CelestialMagnet);
             recipe.AddIngredient(ItemID.CobaltBar, 7);
             recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

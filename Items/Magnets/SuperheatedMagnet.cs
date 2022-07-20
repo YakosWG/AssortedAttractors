@@ -22,26 +22,31 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault(String.Empty);
             DisplayName.SetDefault("Superheated Magnet");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Orange;
-            Item.value = Item.sellPrice(0, 6, 96, 0);
+            item.rare = ItemRarityID.Orange;
+            item.value = Item.sellPrice(0, 6, 96, 0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.HellstoneBar, 16);
             recipe.AddIngredient(ItemID.MeteoriteBar, 4);
-            recipe.AddIngredient(ItemID.TreasureMagnet);
+            recipe.AddTile(TileID.TinkerersWorkbench);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.HellstoneBar, 16);
+            recipe.AddIngredient(ItemID.MeteoriteBar, 4);
             recipe.AddTile(TileID.Hellforge);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

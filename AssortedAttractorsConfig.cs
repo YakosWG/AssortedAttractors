@@ -43,7 +43,7 @@ namespace AssortedAttractors
 
         public override void OnChanged()
         {
-            Mod.Logger.InfoFormat("Assorted Attractors Config has changed. New values are: rangeMult: {0}, speedMult: {1}", rangeMult, speedMult);
+            mod.Logger.InfoFormat("Assorted Attractors Config has changed. New values are: rangeMult: {0}, speedMult: {1}", rangeMult, speedMult);
         }
     }
 }

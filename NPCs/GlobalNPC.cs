@@ -7,37 +7,17 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using AssortedAttractors.Items.Magnets;
-using Terraria.GameContent.ItemDropRules;
 
 namespace AssortedAttractors.NPCs
 {
     class GlobalNPC : Terraria.ModLoader.GlobalNPC
     {
-
-        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        public override void NPCLoot(NPC npc)
         {
-            IItemDropRule entry = ItemDropRule.ByCondition(new ConditionRain(), ModContent.ItemType<FishronMagnet>(), 20, 0, 1);
-            npcLoot.Add(entry);
+            if (npc.type == NPCID.DukeFishron && !Main.expertMode && (Main.rand.Next() % 100 < 5 || Main.raining))
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<FishronMagnet>());
+            }
         }
     }
-
-    //TODO: Garantuee drop in rain
-    class ConditionRain : IItemDropRuleCondition, IProvideItemConditionDescription
-    {
-        public bool CanDrop(DropAttemptInfo info)
-        {
-            return true;
-        }
-
-        public bool CanShowItemDropInUI()
-        {
-            return true;
-        }
-
-        public string GetConditionDescription()
-        {
-            return "please fix";
-        }
-    }
-
 }

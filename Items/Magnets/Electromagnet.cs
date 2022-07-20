@@ -16,26 +16,25 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault(String.Empty);
             DisplayName.SetDefault("Electromagnet");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Green;
-            Item.value = Item.sellPrice(0, 0, 69, 0);
+            item.rare = ItemRarityID.Green;
+            item.value = Item.sellPrice(0, 0, 69, 0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Wire, 50);
             recipe.AddIngredient(ItemID.Shackle);
             recipe.AddRecipeGroup(RecipeGroupID.IronBar, 5);
             recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

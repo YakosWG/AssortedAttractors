@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System;
 using Terraria.Localization;
-using Terraria.GameContent.Creative;
 
 namespace AssortedAttractors.Items.Magnets
 {
@@ -20,12 +19,11 @@ namespace AssortedAttractors.Items.Magnets
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault(String.Empty);
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var line = new TooltipLine(Mod, "MagnetInfo",
+            var line = new TooltipLine(mod, "MagnetInfo",
                 "Range: " + (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult)
                 + "\nSpeed: " + speed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
                 + "\nMax Speed: " + maxSpeed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
@@ -34,14 +32,14 @@ namespace AssortedAttractors.Items.Magnets
         }
         public override void SetDefaults()
         {
-            Item.width = 32;
-            Item.height = 32;
-            Item.maxStack = 1;
+            item.width = 32;
+            item.height = 32;
+            item.maxStack = 1;
         }
 
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

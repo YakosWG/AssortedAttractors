@@ -15,29 +15,28 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Strongly attracts coins and hearts");
             DisplayName.SetDefault("Return on Investment");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.LightPurple;
-            Item.value = Item.sellPrice(0, 15, 0, 0);
+            item.rare = ItemRarityID.LightPurple;
+            item.value = Item.sellPrice(0, 15, 0, 0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<InvestmentMagnet>());
             recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

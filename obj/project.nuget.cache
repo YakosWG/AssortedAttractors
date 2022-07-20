@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "MCBLdCwX5ou9hUJi/0VEvtW2gY0nw1O9v//fRenrnRhGrU7PfZLU5rngzN6Q2/gOCai+q78+GoLeEgtlA6jbGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Yako\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\AssortedAttractors\\AssortedAttractors.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Yako\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}

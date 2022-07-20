@@ -14,13 +14,12 @@ namespace AssortedAttractors.Items
     {
         public override void OpenVanillaBag(string context, Player player, int arg)
         {
-            if (context == "bossBag" && arg == ItemID.FishronBossBag && (Main.rand.NextBool(20) || Main.raining))
+            if (context == "bossBag" && arg == ItemID.FishronBossBag && (Main.rand.Next() % 100 < 5 || Main.raining))
             {
-                player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.FishronBossBag),ModContent.ItemType<FishronMagnet>());
-            } 
-            else if (AssortedAttractors.calamityMod != null && context == "bossBag" && arg == AssortedAttractors.calamityMod.Find<ModItem>("DevourerofGodsBag").Type && Main.rand.NextBool(10))
+                player.QuickSpawnItem(ModContent.ItemType<FishronMagnet>());
+            } else if (AssortedAttractors.calamityMod != null && context == "bossBag" && arg == AssortedAttractors.calamityMod.ItemType("DevourerofGodsBag") && Main.rand.Next() % 100 < 5)
             {
-                player.QuickSpawnItem(player.GetSource_OpenItem(AssortedAttractors.calamityMod.Find<ModItem>("DevourerofGodsBag").Type), ModContent.ItemType<DoGMagnet>());
+                player.QuickSpawnItem(ModContent.ItemType<DoGMagnet>());
             }
         }
 

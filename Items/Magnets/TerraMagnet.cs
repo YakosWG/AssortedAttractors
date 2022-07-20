@@ -15,29 +15,28 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Strongly attracts souls, hearts, stars and coins");
             DisplayName.SetDefault("Rare Earth");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Yellow;
-            Item.value = Item.sellPrice(0, 50, 0, 0);
+            item.rare = ItemRarityID.Yellow;
+            item.value = Item.sellPrice(0, 50, 0, 0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<TrueMidnightMagnet>());
             recipe.AddIngredient(ModContent.ItemType<TrueInvestmentMagnet>());
             recipe.AddTile(TileID.Autohammer);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

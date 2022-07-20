@@ -27,16 +27,14 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls and coins");
             DisplayName.SetDefault("Lunar Orbit");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Red;
-            Item.value = Item.sellPrice(0, 80, 0, 0);
+            item.rare = ItemRarityID.Red;
+            item.value = Item.sellPrice(0, 80, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -47,23 +45,23 @@ namespace AssortedAttractors.Items.Magnets
         public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
 
-            Texture2D texture = Mod.Assets.Request<Texture2D>("Items/Magnets/MoonMagnetMask").Value;
+            Texture2D texture = mod.GetTexture("Items/Magnets/MoonMagnetMask");
 
             if (localTime < animTime)
             {
-                texture = Mod.Assets.Request<Texture2D>("Items/Magnets/MoonMagnetMaskVortex").Value;
+                texture = mod.GetTexture("Items/Magnets/MoonMagnetMaskVortex");
             }
             else if (localTime >= animTime && localTime < 2 * animTime)
             {
-                texture = Mod.Assets.Request<Texture2D>("Items/Magnets/MoonMagnetMaskSolar").Value;
+                texture = mod.GetTexture("Items/Magnets/MoonMagnetMaskSolar");
             }
             else if (localTime >= 2 * animTime && localTime < 3 * animTime)
             {
-                texture = Mod.Assets.Request<Texture2D>("Items/Magnets/MoonMagnetMaskNebula").Value;
+                texture = mod.GetTexture("Items/Magnets/MoonMagnetMaskNebula");
             }
             else
             {
-                texture = Mod.Assets.Request<Texture2D>("Items/Magnets/MoonMagnetMaskStardust").Value;
+                texture = mod.GetTexture("Items/Magnets/MoonMagnetMaskStardust");
             }
 
             float x = ((localTime % animTime) / (float)animTime);
@@ -75,7 +73,7 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<TerraMagnet>());
             recipe.AddIngredient(ModContent.ItemType<VoodooMagnet>());
             recipe.AddIngredient(ItemID.LunarBar, 6);
@@ -84,11 +82,12 @@ namespace AssortedAttractors.Items.Magnets
             recipe.AddIngredient(ItemID.FragmentSolar, 4);
             recipe.AddIngredient(ItemID.FragmentStardust, 4);
             recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

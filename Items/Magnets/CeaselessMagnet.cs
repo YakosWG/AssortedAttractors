@@ -17,45 +17,44 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls and coins");
             DisplayName.SetDefault("Mobius Loop");
 
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 5));
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 5));
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Purple;
-            Item.value = Item.sellPrice(0, 50, 0, 0);
+            item.rare = ItemRarityID.Purple;
+            item.value = Item.sellPrice(0, 50, 0, 0);
 
             if (AssortedAttractors.calamityMod != null) calamityRarityIntegration();
         }
 
         private void calamityRarityIntegration()
         {
-            Item.GetGlobalItem<CalamityGlobalItem>().customRarity = CalamityMod.CalamityRarity.Turquoise;
+            item.GetGlobalItem<CalamityGlobalItem>().customRarity = CalamityMod.CalamityRarity.Turquoise;
         }
 
         public override void AddRecipes()
         {
-            if(AssortedAttractors.calamityMod != null && AssortedAttractors.calamityMod.Find<ModItem>("DarkPlasma").Type != 0 
-                && AssortedAttractors.calamityMod.Find<ModItem>("GalacticaSingularity").Type != 0 && AssortedAttractors.calamityMod.Find<ModItem>("Phantoplasm").Type != 0)
+            if(AssortedAttractors.calamityMod != null && AssortedAttractors.calamityMod.ItemType("DarkPlasma") != 0 
+                && AssortedAttractors.calamityMod.ItemType("GalacticaSingularity") != 0 && AssortedAttractors.calamityMod.ItemType("Phantoplasm") != 0)
             {
-                Recipe recipe = CreateRecipe();
+                ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ModContent.ItemType<MoonMagnet>());
-                recipe.AddIngredient(AssortedAttractors.calamityMod.Find<ModItem>("DarkPlasma").Type, 5);
-                recipe.AddIngredient(AssortedAttractors.calamityMod.Find<ModItem>("GalacticaSingularity").Type, 10);
-                recipe.AddIngredient(AssortedAttractors.calamityMod.Find<ModItem>("Phantoplasm").Type, 5);
+                recipe.AddIngredient(AssortedAttractors.calamityMod.ItemType("DarkPlasma"), 5);
+                recipe.AddIngredient(AssortedAttractors.calamityMod.ItemType("GalacticaSingularity"), 10);
+                recipe.AddIngredient(AssortedAttractors.calamityMod.ItemType("Phantoplasm"), 5);
                 recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.Register();
+                recipe.SetResult(this);
+                recipe.AddRecipe();
             }
             
         }
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);

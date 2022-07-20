@@ -17,25 +17,24 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault(String.Empty);
             DisplayName.SetDefault("Ferrous Horseshoe");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.White;
-            Item.value = Item.sellPrice(0,0,69,0);
+            item.rare = ItemRarityID.White;
+            item.value = Item.sellPrice(0,0,69,0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddRecipeGroup(RecipeGroupID.IronBar, 5);
             recipe.AddIngredient(ItemID.LuckyHorseshoe);
             recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

@@ -16,26 +16,25 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault(String.Empty);
             DisplayName.SetDefault("Shadow Shocker");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.sellPrice(0, 3, 29, 0);
+            item.rare = ItemRarityID.Blue;
+            item.value = Item.sellPrice(0, 3, 29, 0);
         }
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.DemoniteBar, 8);
             recipe.AddIngredient(ItemID.ShadowScale, 4);
             recipe.AddIngredient(ModContent.ItemType<FerrousHorseShoe>());
             recipe.AddTile(TileID.Anvils);
-            recipe.Register();
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

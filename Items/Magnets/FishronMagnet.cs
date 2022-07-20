@@ -17,21 +17,19 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void SetStaticDefaults()
         {
-            base.SetStaticDefaults();
-
             Tooltip.SetDefault("Stronger underwater and during rain");
             DisplayName.SetDefault("Tidal Force");
         }
 
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.LightPurple;
-            Item.value = Item.sellPrice(0, 15, 0, 0);
+            item.rare = ItemRarityID.LightPurple;
+            item.value = Item.sellPrice(0, 15, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            var line = new TooltipLine(Mod, "MagnetInfo",
+            var line = new TooltipLine(mod, "MagnetInfo",
                 "Range: " + (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult)
                 + "\nSpeed: " + speed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
                 + "\nMax Speed: " + maxSpeed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
@@ -39,7 +37,7 @@ namespace AssortedAttractors.Items.Magnets
 
             if (Main.player[Main.myPlayer].wet || Main.raining)
             {
-                line = new TooltipLine(Mod, "MagnetInfo",
+                line = new TooltipLine(mod, "MagnetInfo",
                 "Range: " + (int)Math.Floor(2 * range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult)
                 + "\nSpeed: " + ((speed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult) + 0.2f)
                 + "\nMax Speed: " + ((maxSpeed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult) + 4f)
@@ -51,7 +49,7 @@ namespace AssortedAttractors.Items.Magnets
 
         public override void UpdateInventory(Player player)
         {
-            if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
+            if (!this.item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
             player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);
