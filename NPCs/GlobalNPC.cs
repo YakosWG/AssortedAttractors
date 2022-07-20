@@ -16,17 +16,28 @@ namespace AssortedAttractors.NPCs
 
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            IItemDropRule entry = ItemDropRule.ByCondition(new ConditionRain(), ModContent.ItemType<FishronMagnet>(), 20, 0, 1);
-            npcLoot.Add(entry);
+            if (npc.type == NPCID.DukeFishron)
+            {
+                IItemDropRule entry = ItemDropRule.ByCondition(new ConditionRain(true), ModContent.ItemType<FishronMagnet>(), 20, 0, 1);
+                npcLoot.Add(entry);
+                entry = ItemDropRule.ByCondition(new ConditionRain(false), ModContent.ItemType<FishronMagnet>(), 1, 1, 1);
+                npcLoot.Add(entry);
+            }
         }
     }
 
-    //TODO: Garantuee drop in rain
     class ConditionRain : IItemDropRuleCondition, IProvideItemConditionDescription
     {
+        bool invert = false;
+
+        public ConditionRain(bool invert)
+        {
+            this.invert = invert;
+        }
+
         public bool CanDrop(DropAttemptInfo info)
         {
-            return true;
+            return Main.raining ? !invert : invert;
         }
 
         public bool CanShowItemDropInUI()
@@ -36,7 +47,7 @@ namespace AssortedAttractors.NPCs
 
         public string GetConditionDescription()
         {
-            return "please fix";
+            return invert ? "On a clear day" : "During Rain";
         }
     }
 
