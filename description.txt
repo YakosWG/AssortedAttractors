@@ -1,2 +1,10 @@
-Assorted Attractors adds many different magnets that can attract items, mana stars, hearts or all of them at once. Many different magnets will be available throughout your
-playthrough.
+Assorted Attractors adds many different magnets that can attract items, mana stars, hearts, or all of them at once. Many different magnets will be available throughout your playthrough.
+Range and Speed are configurable via config.
+Assorted Attractors integrates with CalamityMod, adding additional higher tier magnets if Calamity is installed.
+
+# Changelog:
+## [1.0.1] - 2022-07-21
+	- Fixed an issue where AssortedAttractors would crash when disabling Calamity
+
+
+GitHub: https://github.com/YakosWG/AssortedAttractors
