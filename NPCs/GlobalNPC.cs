@@ -18,10 +18,17 @@ namespace AssortedAttractors.NPCs
         {
             if (npc.type == NPCID.DukeFishron)
             {
+                LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+     
+                //while not in rain
                 IItemDropRule entry = ItemDropRule.ByCondition(new ConditionRain(true), ModContent.ItemType<FishronMagnet>(), 20, 0, 1);
-                npcLoot.Add(entry);
+                notExpertRule.OnSuccess(entry);
+
+                //while in rain
                 entry = ItemDropRule.ByCondition(new ConditionRain(false), ModContent.ItemType<FishronMagnet>(), 1, 1, 1);
-                npcLoot.Add(entry);
+                notExpertRule.OnSuccess(entry);
+
+                npcLoot.Add(notExpertRule);
             }
         }
     }
