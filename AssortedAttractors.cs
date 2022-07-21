@@ -10,7 +10,14 @@ namespace AssortedAttractors
 
         public override void Load()
         {
-			calamityMod = ModLoader.GetMod("CalamityMod");			
+			try
+			{
+				calamityMod = ModLoader.GetMod("CalamityMod");
+			}
+			catch {
+				calamityMod = null;
+            }
+
 		}
 
 	}

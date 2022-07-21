@@ -33,6 +33,7 @@ namespace AssortedAttractors.Items.Magnets
             if (AssortedAttractors.calamityMod != null) calamityRarityIntegration();
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         private void calamityRarityIntegration()
         {
             Item.GetGlobalItem<CalamityGlobalItem>().customRarity = CalamityMod.CalamityRarity.Turquoise;
