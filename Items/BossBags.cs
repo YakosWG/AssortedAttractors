@@ -13,20 +13,6 @@ namespace AssortedAttractors.Items
 {
     class BossBags : GlobalItem
     {
-        public override void OpenVanillaBag(string context, Player player, int arg)
-        {
-            if (context == "bossBag" && arg == ItemID.FishronBossBag && (Main.rand.NextBool(20) || Main.raining))
-            {
-                player.QuickSpawnItem(player.GetSource_OpenItem(ItemID.FishronBossBag),ModContent.ItemType<FishronMagnet>());
-            } 
-            else if (AssortedAttractors.calamityMod != null && context == "bossBag" && arg == AssortedAttractors.calamityMod.Find<ModItem>("DevourerofGodsBag").Type && Main.rand.NextBool(10))
-            {
-                player.QuickSpawnItem(player.GetSource_OpenItem(AssortedAttractors.calamityMod.Find<ModItem>("DevourerofGodsBag").Type), ModContent.ItemType<DoGMagnet>());
-            }
-        }
-
-        /*
-
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
         {
         
@@ -42,9 +28,7 @@ namespace AssortedAttractors.Items
                 IItemDropRule entry = ItemDropRule.Common(ModContent.ItemType<DoGMagnet>(), 10, 0, 1);
                 itemLoot.Add(entry);
             }
-        }
-
-        */
+        }      
 
     }
 }
