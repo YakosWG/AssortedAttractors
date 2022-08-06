@@ -8,9 +8,9 @@ namespace AssortedAttractors.Items.Magnets
     {
         public TrueInvestmentMagnet()
         {
-            range = 120;
-            speed = 1.8f;
-            maxSpeed = 8f;
+            range = 18;
+            speed = 1.6f;
+            maxSpeed = 6.4f;
         }
 
         public override void SetStaticDefaults()

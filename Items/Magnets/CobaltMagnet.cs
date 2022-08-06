@@ -9,7 +9,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public CobaltMagnet()
         {
-            range = 100;
+            range = 15;
             speed = 1.5f;
             maxSpeed = 6f;
         }

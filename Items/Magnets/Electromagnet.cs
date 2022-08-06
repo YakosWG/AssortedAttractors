@@ -9,7 +9,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public Electromagnet()
         {
-            range = 28;
+            range = 3;
             speed = 1.0f;
             maxSpeed = 4.0f;
         }

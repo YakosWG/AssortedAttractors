@@ -39,7 +39,7 @@ namespace AssortedAttractors
         {
             this.magnetActive = true;
 
-            range = (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult);
+            range = (int) Math.Floor(range* 16 * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult);
             speed *= ModContent.GetInstance<AssortedAttractorsConfig>().speedMult;
             maxSpeed *= ModContent.GetInstance<AssortedAttractorsConfig>().speedMult;
 
@@ -85,7 +85,8 @@ namespace AssortedAttractors
 
             for (int j = 0; j < 400; j++)
             {
-                if (!Main.item[j].active || Main.item[j].noGrabDelay != 0 || Main.player[Main.item[j].playerIndexTheItemIsReservedFor] != this.Player || !ItemLoader.CanPickup(Main.item[j], this.Player))
+                if (!Main.item[j].active || Main.item[j].noGrabDelay != 0 || Main.player[Main.item[j].playerIndexTheItemIsReservedFor] != this.Player 
+                    || !ItemLoader.CanPickup(Main.item[j], this.Player))
                 {
                     continue;
                 }
@@ -116,7 +117,7 @@ namespace AssortedAttractors
 
                 if (voodooMagnet && Main.item[j].type == ItemID.GuideVoodooDoll)
                 {
-                    grabRange += VoodooMagnet.rangeModifier;
+                    grabRange += VoodooMagnet.rangeModifier*16;
                     speed += VoodooMagnet.speedModifier;
                     maxSpeed += VoodooMagnet.maxSpeedModifier;
                 }

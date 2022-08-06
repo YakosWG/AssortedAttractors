@@ -10,7 +10,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public CeaselessMagnet()
         {
-            range = 500;
+            range = 60;
             speed = 3f;
             maxSpeed = 12f;
         }

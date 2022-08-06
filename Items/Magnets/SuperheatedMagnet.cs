@@ -9,16 +9,10 @@ namespace AssortedAttractors.Items.Magnets
     {
         public SuperheatedMagnet()
         {
-            range = 96;
+            range = 10;
             speed = 0.4f;
-            maxSpeed = 1.2f;
+            maxSpeed = 1.5f;
         }
-
-        /* Cobalt magnet:
-         * more speed and range
-         * Palladium magnet:
-         * more range, bonus range for hearts 
-         */
 
         public override void SetStaticDefaults()
         {

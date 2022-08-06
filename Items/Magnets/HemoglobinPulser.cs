@@ -9,7 +9,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public HemoglobinPulser()
         {
-            range = 57;
+            range = 6;
             speed = 0.5f;
             maxSpeed = 2.0f;
         }

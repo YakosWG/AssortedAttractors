@@ -10,7 +10,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public DoGMagnet()
         {
-            range = 800;
+            range = 80;
             speed = 4f;
             maxSpeed = 16f;
         }

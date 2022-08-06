@@ -8,7 +8,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public InvestmentMagnet()
         {
-            range = 120;
+            range = 18;
             speed = 1.3f;
             maxSpeed = 5f;
         }

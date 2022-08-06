@@ -8,7 +8,7 @@ namespace AssortedAttractors.Items.Magnets
 {
     class VoodooMagnet : MagnetBase
     {
-        public static int rangeModifier = 500;
+        public static int rangeModifier = 30;
         public static float speedModifier = 0.5f;
         public static float maxSpeedModifier = 10f;
         public override void SetStaticDefaults()

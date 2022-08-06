@@ -8,7 +8,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public MidnightMagnet()
         {
-            range = 96;
+            range = 10;
             speed = 1f;
             maxSpeed = 4f;
         }

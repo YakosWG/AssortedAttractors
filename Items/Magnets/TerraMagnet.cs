@@ -8,8 +8,8 @@ namespace AssortedAttractors.Items.Magnets
     {
         public TerraMagnet()
         {
-            range = 200;
-            speed = 1.7f;
+            range = 30;
+            speed = 1.8f;
             maxSpeed = 6.9f;
         }
 

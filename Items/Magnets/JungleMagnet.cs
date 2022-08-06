@@ -8,7 +8,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public JungleMagnet()
         {
-            range = 38;
+            range = 3;
             speed = 0.9f;
             maxSpeed = 2.7f;
         }

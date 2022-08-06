@@ -9,7 +9,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public ShadowShocker()
         {
-            range = 38;
+            range = 4;
             speed = 0.7f;
             maxSpeed = 2.8f;
         }

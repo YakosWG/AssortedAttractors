@@ -10,7 +10,7 @@ namespace AssortedAttractors.Items.Magnets
 
         public FerrousHorseShoe()
         {
-            range = 28;
+            range = 3;
             speed = 0.5f;
             maxSpeed = 2f;
         }

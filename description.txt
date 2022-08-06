@@ -9,5 +9,9 @@ Assorted Attractors integrates with CalamityMod, adding additional higher tier m
 	- Changed Tidal Force drop-logic to not drop the magnet twice in expert mode
 ## [1.0.3] - 2022-07-28
 	- Adjusted for new TModLoader stable version
+## [1.0.4] - 2022-08-06
+	- Range of all magnets has been buffed
+	- Range is now displayed in tiles instead of pixels as it's far more intuitive
+
 
 GitHub: https://github.com/YakosWG/AssortedAttractors

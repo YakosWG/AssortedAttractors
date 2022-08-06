@@ -20,7 +20,7 @@ namespace AssortedAttractors.Items.Magnets
 
         public MoonMagnet()
         {
-            range = 255;
+            range = 45;
             speed = 2f;
             maxSpeed = 8f;
         }

@@ -8,7 +8,7 @@ namespace AssortedAttractors.Items.Magnets
     {
         public PalladiumMagnet()
         {
-            range = 100;
+            range = 15;
             speed = 1f;
             maxSpeed = 4f;
         }
