@@ -6,7 +6,7 @@ Assorted Attractors integrates with CalamityMod, adding additional higher tier m
 - The "Speed" stat determines the acceleration that an item being grabbed by a magnet experiences and is added to the items velocity every game tick (1 tick = about 1/60th of a second). 
 - "Max Speed" is the maximum velocity an item can have when being drawn toward the player. 
    This speed is relative to the player's own speed so moving into a direction will allow the item to move faster to keep up with the player.
-- For every player only one magnet can be active at any given time. When activating multiple magnets only the first one will work. 
+- Only one magnet can be active per player at any given time. When activating multiple magnets only the first one will work. 
 
 # Changelog:
 ## [1.0.1] - 2022-07-21
