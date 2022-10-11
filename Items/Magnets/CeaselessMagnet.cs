@@ -3,6 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalamityMod.Items;
+using CalamityMod.Rarities;
 
 namespace AssortedAttractors.Items.Magnets
 {
@@ -36,7 +37,7 @@ namespace AssortedAttractors.Items.Magnets
         [JITWhenModsEnabled("CalamityMod")]
         private void calamityRarityIntegration()
         {
-            Item.GetGlobalItem<CalamityGlobalItem>().customRarity = CalamityMod.CalamityRarity.Turquoise;
+            Item.rare = ModContent.RarityType<Turquoise>();
         }
 
         public override void AddRecipes()
