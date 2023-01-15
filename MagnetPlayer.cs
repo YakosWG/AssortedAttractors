@@ -35,7 +35,7 @@ namespace AssortedAttractors
             eventEssenceMagnet = false;
         }
 
-        public void parseMagnet(int range, float speed, float maxSpeed)
+        public void ParseMagnet(int range, float speed, float maxSpeed)
         {
             this.magnetActive = true;
 
@@ -44,7 +44,7 @@ namespace AssortedAttractors
             maxSpeed *= ModContent.GetInstance<AssortedAttractorsConfig>().speedMult;
 
             this.magnetGrabRange = range;
-            this.magnetGrabSpeed = 1 + speed;
+            this.magnetGrabSpeed = speed;
             this.magnetGrabSpeedMax = maxSpeed;
         }
 
@@ -72,7 +72,7 @@ namespace AssortedAttractors
                     if (manaMagnet)
                     {
                         grabRange = Player.defaultItemGrabRange + 4 * magnetGrabRange;
-                        speed += speed - 1;
+                        speed += speed;
                         maxSpeed *= 1.5f;
                     }
                 }
@@ -84,7 +84,7 @@ namespace AssortedAttractors
                 if (soulMagnet && IsSoul(Main.item[j].type))
                 {
                     grabRange = Player.defaultItemGrabRange + 4 * magnetGrabRange;
-                    speed += speed - 1;
+                    speed += speed;
                     maxSpeed *= 1.5f;
                 }
 
@@ -98,14 +98,14 @@ namespace AssortedAttractors
                 if (waterBonus && (this.Player.wet || Main.raining))
                 {
                     grabRange = Player.defaultItemGrabRange + 2 * magnetGrabRange;
-                    speed = (speed - 1) * 1.5f + speed;
+                    speed *= 1.5f;
                     maxSpeed *= 1.5f;
                 }
 
                 if (eventEssenceMagnet && AssortedAttractors.calamityMod != null && IsEventEssence(Main.item[j].type))
                 {
                     grabRange = Player.defaultItemGrabRange + 4 * magnetGrabRange;
-                    speed += speed - 1;
+                    speed += speed;
                     maxSpeed *= 1.5f;
                 }
 
@@ -126,8 +126,25 @@ namespace AssortedAttractors
 
                     //v_new = v * (1 - 1/speed) + relative_dist * maxSpeed
 
-                    Main.item[j].velocity.X = Utils.Clamp((Main.item[j].velocity.X * (speed - 1) + distX * maxSpeed / dist) / speed, -(maxSpeed + 4f), (maxSpeed + 4f));
-                    Main.item[j].velocity.Y = Utils.Clamp((Main.item[j].velocity.Y * (speed - 1) + distY * maxSpeed / dist) / speed, -(maxSpeed + 4f), (maxSpeed + 4f));
+                    if (Math.Abs(Main.item[j].velocity.X) < maxSpeed)
+                    {
+                        Main.item[j].velocity.X = Utils.Clamp((Main.item[j].velocity.X + distX/dist * speed ), -(maxSpeed + 4f), maxSpeed + 4f);
+                    } else
+                    {
+                        float modX = Utils.Clamp(distX / grabRange, 0.1f, 1f);
+                        Main.item[j].velocity.X = Main.item[j].velocity.X / (1 + speed * modX);
+                    }
+                                        
+                    if (Math.Abs(Main.item[j].velocity.Y) < maxSpeed)
+                    {
+                        Main.item[j].velocity.Y = Utils.Clamp((Main.item[j].velocity.Y + distY/dist * speed ), -(maxSpeed + 4f), maxSpeed + 4f);
+                    } else
+                    {
+                        float modY = Utils.Clamp(distY / grabRange, 0.1f, 1f);
+                        Main.item[j].velocity.Y = Main.item[j].velocity.Y / (1 + speed * modY);
+                    }
+                    
+                    
                     continue;
                 }
 

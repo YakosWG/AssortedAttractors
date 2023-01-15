@@ -60,7 +60,7 @@ namespace AssortedAttractors.Items.Magnets
             if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
-            player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);
+            player.GetModPlayer<MagnetPlayer>().ParseMagnet(this.range, this.speed, this.maxSpeed);
             player.manaMagnet = false;
             player.goldRing = true;
             player.AddBuff(BuffID.Heartreach, 1);

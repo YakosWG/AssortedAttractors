@@ -42,7 +42,7 @@ namespace AssortedAttractors.Items.Magnets
             if (!this.Item.favorited || player.GetModPlayer<MagnetPlayer>().magnetActive)
                 return;
 
-            player.GetModPlayer<MagnetPlayer>().parseMagnet(this.range, this.speed, this.maxSpeed);
+            player.GetModPlayer<MagnetPlayer>().ParseMagnet(this.range, this.speed, this.maxSpeed);
             player.manaMagnet = false; //Custom mana magnet is better than vanilla celestial at this point
             player.GetModPlayer<MagnetPlayer>().manaMagnet = true; 
             player.GetModPlayer<MagnetPlayer>().soulMagnet = true;
