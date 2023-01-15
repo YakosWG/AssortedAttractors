@@ -26,7 +26,7 @@ namespace AssortedAttractors.Items.Magnets
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             var line = new TooltipLine(Mod, "MagnetInfo",
-                "Range: +" + (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult) + " Tiles"
+                "Range: " + (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult) + " Tiles"
                 + "\nSpeed: " + speed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
                 + "\nMax Speed: " + maxSpeed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
                 + "\nFavorite this item to enable it!");
