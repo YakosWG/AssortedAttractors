@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using AssortedAttractors.Items.Magnets;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.Map;
 
 namespace AssortedAttractors.NPCs
 {
@@ -19,7 +20,7 @@ namespace AssortedAttractors.NPCs
             if (npc.type == NPCID.DukeFishron)
             {
                 LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-     
+
                 //while not in rain
                 IItemDropRule entry = ItemDropRule.ByCondition(new ConditionRain(true), ModContent.ItemType<FishronMagnet>(), 20, 0, 1);
                 notExpertRule.OnSuccess(entry);
@@ -31,7 +32,27 @@ namespace AssortedAttractors.NPCs
                 npcLoot.Add(notExpertRule);
             }
         }
+
+        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        {
+            //Merchant sells Lucky Horseshoe if he is (technically if you are) on sky island height
+            if (type == NPCID.Merchant && Main.LocalPlayer.ZoneSkyHeight)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.LuckyHorseshoe);
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                nextSlot++;
+
+            }
+            //Goblin Tinkerer sells treasure magnet after skeletron has been defeated if he is (technically if you are) in the underworld
+            else if (type == NPCID.GoblinTinkerer && NPC.downedBoss3 && Main.LocalPlayer.ZoneUnderworldHeight)
+            {
+                shop.item[nextSlot].SetDefaults(ItemID.TreasureMagnet);
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                nextSlot++;
+            }
+        }
     }
+
 
     class ConditionRain : IItemDropRuleCondition, IProvideItemConditionDescription
     {
@@ -57,5 +78,5 @@ namespace AssortedAttractors.NPCs
             return invert ? "On a clear day" : "During Rain";
         }
     }
-
 }
+

@@ -122,29 +122,18 @@ namespace AssortedAttractors
                 {
                     float distX = this.Player.Center.X - Main.item[j].Center.X;
                     float distY = this.Player.Center.Y - Main.item[j].Center.Y;
-                    float dist = (float)Math.Sqrt(distX * distX + distY * distY);
+                    float distance = (float)Math.Sqrt(distX * distX + distY * distY);
+                    float playerVelocityX = this.Player.velocity.X;
+                    float playerVelocityY = this.Player.velocity.Y;
+                    float orbitModifier = 0.9f;
 
-                    //v_new = v * (1 - 1/speed) + relative_dist * maxSpeed
+                    //Slow the item to destabilze any orbits
+                    Main.item[j].velocity = Main.item[j].velocity * orbitModifier;
 
-                    if (Math.Abs(Main.item[j].velocity.X) < maxSpeed)
-                    {
-                        Main.item[j].velocity.X = Utils.Clamp((Main.item[j].velocity.X + distX/dist * speed ), -(maxSpeed + 4f), maxSpeed + 4f);
-                    } else
-                    {
-                        float modX = Utils.Clamp(distX / grabRange, 0.1f, 1f);
-                        Main.item[j].velocity.X = Main.item[j].velocity.X / (1 + speed * modX);
-                    }
-                                        
-                    if (Math.Abs(Main.item[j].velocity.Y) < maxSpeed)
-                    {
-                        Main.item[j].velocity.Y = Utils.Clamp((Main.item[j].velocity.Y + distY/dist * speed ), -(maxSpeed + 4f), maxSpeed + 4f);
-                    } else
-                    {
-                        float modY = Utils.Clamp(distY / grabRange, 0.1f, 1f);
-                        Main.item[j].velocity.Y = Main.item[j].velocity.Y / (1 + speed * modY);
-                    }
-                    
-                    
+                    //Move the item toward the player
+                    Main.item[j].velocity.X = Utils.Clamp((Main.item[j].velocity.X + distX / distance * speed), -(maxSpeed + 4f) + playerVelocityX, maxSpeed + 4f + playerVelocityX);
+                    Main.item[j].velocity.Y = Utils.Clamp((Main.item[j].velocity.Y + distY / distance * speed), -(maxSpeed + 4f) + playerVelocityY, maxSpeed + 4f + playerVelocityY);
+
                     continue;
                 }
 

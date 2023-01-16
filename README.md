@@ -10,11 +10,22 @@ Assorted Attractors integrates with CalamityMod, adding additional higher tier m
 
 # Changelog:
 ## [1.0.1] - 2022-07-21
-- Fixed an issue where AssortedAttractors would crash when disabling Calamity
+	- Fixed an issue where AssortedAttractors would crash when disabling Calamity
 ## [1.0.2] - 2022-07-21
-- Changed Tidal Force drop-logic to not drop the magnet twice in expert mode
+	- Changed Tidal Force drop-logic to not drop the magnet twice in expert mode
 ## [1.0.3] - 2022-07-28
-- Adjusted for new TModLoader stable version
+	- Adjusted for new TModLoader stable version
 ## [1.0.4] - 2022-08-06
-- Range of all magnets has been buffed
-- Range is now displayed in tiles instead of pixels as it's far more intuitive
+	- Range of all magnets has been buffed
+	- Range is now displayed in tiles instead of pixels as it's far more intuitive
+## [1.0.5] - 2022-10-11
+	- Update to newest TModloader & Calamity version
+## [1.1.0] - 2023-01-16
+	- Update to newest Calamity version (nothing actually changed because of this)
+	- Rework grab code (this is experimental and might be subject to further changes)
+	- Meld Blob is now considered a soul
+	- Tidal Force "in water" buff is now relative (previously it was a flat increase, causing it to behave weirdly with certain config settings)
+	- The Merchant will now sell a lucky horseshoe when he's on a sky island
+	- After Skeletron has been defeated the Goblin Tinkerer will now sell the Treasure Magnet when in the underworld
+
+sorry for not maintaining the github changelog for a while
