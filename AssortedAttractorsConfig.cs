@@ -18,7 +18,7 @@ namespace AssortedAttractors
     {
         public override ConfigScope Mode => ConfigScope.ServerSide;
 
-        [Label("Range Multiplier")]
+        //[Label("Range Multiplier")]
         [Description("Multiplies range by this value. Range is rounded down to closest whole number")]
         [Range(0f, 10f)]
         [Increment(0.1f)]
@@ -26,7 +26,7 @@ namespace AssortedAttractors
         //[ReloadRequired]
         public float rangeMult;
 
-        [Label("Speed Multiplier")]
+        //[Label("Speed Multiplier")]
         [Description("Multiplies speed and max speed by this value")]
         [Range(0f, 10f)]
         [Increment(0.1f)]

@@ -17,8 +17,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Will only attract stars. Stars are attracted at far greater range");
-            DisplayName.SetDefault("Spore Catcher");
+            // Tooltip.SetDefault("Will only attract stars. Stars are attracted at far greater range");
+            // DisplayName.SetDefault("Spore Catcher");
         }
 
         public override void SetDefaults()

@@ -1,0 +1,120 @@
+Mods: {
+	AssortedAttractors: {
+		Items: {
+			CeaselessMagnet: {
+				DisplayName: Mobius Loop
+				Tooltip: Strongly attracts souls, hearts, stars, dolls and coins
+			}
+
+			CobaltMagnet: {
+				DisplayName: Jishaku
+				Tooltip: Stars are attracted at far greater range
+			}
+
+			DoGMagnet: {
+				DisplayName: Devourer of Drops
+				Tooltip: Strongly attracts souls, hearts, stars, dolls, coins, nightmare fuel, darksun fragments and endothermic energy
+			}
+
+			Electromagnet: {
+				DisplayName: Electromagnet
+				Tooltip: ""
+			}
+
+			FerrousHorseShoe: {
+				DisplayName: Ferrous Horseshoe
+				Tooltip: ""
+			}
+
+			FishronMagnet: {
+				DisplayName: Tidal Force
+				Tooltip: Stronger underwater and during rain
+			}
+
+			HemoglobinPulser: {
+				DisplayName: Hemoglobin Pulser
+				Tooltip: ""
+			}
+
+			InvestmentMagnet: {
+				DisplayName: The Investment
+				Tooltip: Strongly attracts coins
+			}
+
+			JungleMagnet: {
+				DisplayName: Spore Catcher
+				Tooltip: Will only attract stars. Stars are attracted at far greater range
+			}
+
+			MagnetBase: {
+				DisplayName: Magnet Base
+				Tooltip: ""
+			}
+
+			MidnightMagnet: {
+				DisplayName: Midnight's Invitation
+				Tooltip: Stars are attracted at far greater range
+			}
+
+			MoonMagnet: {
+				DisplayName: Lunar Orbit
+				Tooltip: Strongly attracts souls, hearts, stars, dolls and coins
+			}
+
+			PalladiumMagnet: {
+				DisplayName: Valentine
+				Tooltip:
+					'''
+					Strongly attracts hearts 
+					Stars are attracted at far greater range
+					'''
+			}
+
+			ShadowShocker: {
+				DisplayName: Shadow Shocker
+				Tooltip: ""
+			}
+
+			SuperheatedMagnet: {
+				DisplayName: Superheated Magnet
+				Tooltip: ""
+			}
+
+			TerraMagnet: {
+				DisplayName: Rare Earth
+				Tooltip: Strongly attracts souls, hearts, stars and coins
+			}
+
+			TrueInvestmentMagnet: {
+				DisplayName: Return on Investment
+				Tooltip: Strongly attracts coins and hearts
+			}
+
+			TrueMidnightMagnet: {
+				DisplayName: Midnight's Reception
+				Tooltip: Strongly attracts souls and stars
+			}
+
+			VoodooMagnet: {
+				DisplayName: Miniature Voodoo Demon
+				Tooltip: Improves attraction of voodoo dolls. Needs another magnet to work!
+			}
+		}
+
+		Configs: {
+			AssortedAttractorsConfig: {
+				DisplayName: Assorted Attractors Config
+
+				rangeMult: {
+					Label: Range Multiplier
+					Tooltip: ""
+				}
+
+				speedMult: {
+					Label: Speed Multiplier
+					Tooltip: ""
+				}
+			}
+		}
+	}
+}

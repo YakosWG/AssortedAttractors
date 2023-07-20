@@ -33,27 +33,26 @@ namespace AssortedAttractors.NPCs
             }
         }
 
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        public override void ModifyShop(NPCShop shop)
         {
-            //Merchant sells Lucky Horseshoe if he is (technically if you are) on sky island height
-            if (type == NPCID.Merchant && Main.LocalPlayer.ZoneSkyHeight)
+            //Add Lucky Horseshoe to Merchant shop if he is on a sky island
+            if (shop.NpcType == NPCID.Merchant)
             {
-                shop.item[nextSlot].SetDefaults(ItemID.LuckyHorseshoe);
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                nextSlot++;
-
+                shop.Add(new Item(ItemID.LuckyHorseshoe)
+                {
+                    shopCustomPrice = 50000
+                }, Condition.InSkyHeight);
             }
-            //Goblin Tinkerer sells treasure magnet after skeletron has been defeated if he is (technically if you are) in the underworld
-            else if (type == NPCID.GoblinTinkerer && NPC.downedBoss3 && Main.LocalPlayer.ZoneUnderworldHeight)
+            //Add Treasure Magnet to Gobling Tinkerer shop if he is in the underworld and Skeletron has been defeated
+            else if ((shop.NpcType == NPCID.GoblinTinkerer) && NPC.downedBoss3 && Main.LocalPlayer.ZoneUnderworldHeight)
             {
-                shop.item[nextSlot].SetDefaults(ItemID.TreasureMagnet);
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
-                nextSlot++;
+                shop.Add(new Item(ItemID.TreasureMagnet)
+                {
+                    shopCustomPrice = 150000
+                }, Condition.InUnderworldHeight, Condition.DownedSkeletron);
             }
         }
     }
-
-
     class ConditionRain : IItemDropRuleCondition, IProvideItemConditionDescription
     {
         bool invert = false;

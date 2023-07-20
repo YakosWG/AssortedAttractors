@@ -19,8 +19,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault(String.Empty);
-            DisplayName.SetDefault("Ferrous Horseshoe");
+            // Tooltip.SetDefault(String.Empty);
+            // DisplayName.SetDefault("Ferrous Horseshoe");
         }
 
         public override void SetDefaults()

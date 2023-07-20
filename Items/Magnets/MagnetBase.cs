@@ -16,10 +16,9 @@ namespace AssortedAttractors.Items.Magnets
         protected float speed = 0f; //Accelleration is 1 + speed
         protected float maxSpeed = 0f; //Maximum base velocity item is pulled at. X, Y speed capped individually, Max speed is relative to player velocity
 
-
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault(String.Empty);
+            // Tooltip.SetDefault(String.Empty);
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

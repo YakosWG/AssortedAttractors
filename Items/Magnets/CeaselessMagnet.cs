@@ -20,8 +20,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls and coins");
-            DisplayName.SetDefault("Mobius Loop");
+            // Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls and coins");
+            // DisplayName.SetDefault("Mobius Loop");
 
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 5));
         }

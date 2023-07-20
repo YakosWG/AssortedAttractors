@@ -29,8 +29,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls and coins");
-            DisplayName.SetDefault("Lunar Orbit");
+            // Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls and coins");
+            // DisplayName.SetDefault("Lunar Orbit");
         }
 
         public override void SetDefaults()

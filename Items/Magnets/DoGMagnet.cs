@@ -20,8 +20,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls, coins, nightmare fuel, darksun fragments and endothermic energy");
-            DisplayName.SetDefault("Devourer of Drops");
+            // Tooltip.SetDefault("Strongly attracts souls, hearts, stars, dolls, coins, nightmare fuel, darksun fragments and endothermic energy");
+            // DisplayName.SetDefault("Devourer of Drops");
         }
 
         public override void SetDefaults()

@@ -17,8 +17,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts souls, hearts, stars and coins");
-            DisplayName.SetDefault("Rare Earth");
+            // Tooltip.SetDefault("Strongly attracts souls, hearts, stars and coins");
+            // DisplayName.SetDefault("Rare Earth");
         }
 
         public override void SetDefaults()

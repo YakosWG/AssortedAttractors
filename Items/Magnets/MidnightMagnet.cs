@@ -17,8 +17,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Stars are attracted at far greater range");           
-            DisplayName.SetDefault("Midnight's Invitation");
+            // Tooltip.SetDefault("Stars are attracted at far greater range");           
+            // DisplayName.SetDefault("Midnight's Invitation");
         }
 
         public override void SetDefaults()

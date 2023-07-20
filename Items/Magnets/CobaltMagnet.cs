@@ -18,8 +18,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Stars are attracted at far greater range");           
-            DisplayName.SetDefault("Jishaku");
+            // Tooltip.SetDefault("Stars are attracted at far greater range");           
+            // DisplayName.SetDefault("Jishaku");
         }
 
         public override void SetDefaults()

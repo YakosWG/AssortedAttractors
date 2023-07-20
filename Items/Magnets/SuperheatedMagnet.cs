@@ -18,8 +18,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault(String.Empty);
-            DisplayName.SetDefault("Superheated Magnet");
+            // Tooltip.SetDefault(String.Empty);
+            // DisplayName.SetDefault("Superheated Magnet");
         }
 
         public override void SetDefaults()

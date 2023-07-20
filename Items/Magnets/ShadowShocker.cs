@@ -18,8 +18,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault(String.Empty);
-            DisplayName.SetDefault("Shadow Shocker");
+            // Tooltip.SetDefault(String.Empty);
+            // DisplayName.SetDefault("Shadow Shocker");
         }
 
         public override void SetDefaults()

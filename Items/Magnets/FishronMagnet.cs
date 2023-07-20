@@ -19,8 +19,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Stronger underwater and during rain");
-            DisplayName.SetDefault("Tidal Force");
+            // Tooltip.SetDefault("Stronger underwater and during rain");
+            // DisplayName.SetDefault("Tidal Force");
         }
 
         public override void SetDefaults()
@@ -32,7 +32,7 @@ namespace AssortedAttractors.Items.Magnets
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             var line = new TooltipLine(Mod, "MagnetInfo",
-                "Range: +" + (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult) + " Tiles"
+                "Range: " + (int)Math.Floor(range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult) + " Tiles"
                 + "\nSpeed: " + speed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
                 + "\nMax Speed: " + maxSpeed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult
                 + "\nFavorite this item to enable it!"); ;
@@ -40,7 +40,7 @@ namespace AssortedAttractors.Items.Magnets
             if (Main.player[Main.myPlayer].wet || Main.raining)
             {
                 line = new TooltipLine(Mod, "MagnetInfo",
-                "Range: +" + (int)Math.Floor(2 * range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult) + " Tiles"
+                "Range: " + (int)Math.Floor(2 * range * ModContent.GetInstance<AssortedAttractorsConfig>().rangeMult) + " Tiles"
                 + "\nSpeed: " + ((speed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult) + 0.2f)
                 + "\nMax Speed: " + ((maxSpeed * ModContent.GetInstance<AssortedAttractorsConfig>().speedMult) + 4f)
                 + "\nFavorite this item to enable it!");

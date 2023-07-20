@@ -17,8 +17,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts coins and hearts");
-            DisplayName.SetDefault("Return on Investment");
+            // Tooltip.SetDefault("Strongly attracts coins and hearts");
+            // DisplayName.SetDefault("Return on Investment");
         }
 
         public override void SetDefaults()

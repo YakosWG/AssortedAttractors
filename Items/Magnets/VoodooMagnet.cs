@@ -15,8 +15,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Improves attraction of voodoo dolls. Needs another magnet to work!");
-            DisplayName.SetDefault("Miniature Voodoo Demon");
+            // Tooltip.SetDefault("Improves attraction of voodoo dolls. Needs another magnet to work!");
+            // DisplayName.SetDefault("Miniature Voodoo Demon");
 
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(30, 2));
             ItemID.Sets.ItemNoGravity[Item.type] = true;

@@ -18,8 +18,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault(String.Empty);
-            DisplayName.SetDefault("Electromagnet");
+            // Tooltip.SetDefault(String.Empty);
+            // DisplayName.SetDefault("Electromagnet");
         }
 
         public override void SetDefaults()

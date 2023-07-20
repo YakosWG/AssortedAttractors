@@ -17,8 +17,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts hearts \nStars are attracted at far greater range");            
-            DisplayName.SetDefault("Valentine");
+            // Tooltip.SetDefault("Strongly attracts hearts \nStars are attracted at far greater range");            
+            // DisplayName.SetDefault("Valentine");
         }
 
         public override void SetDefaults()

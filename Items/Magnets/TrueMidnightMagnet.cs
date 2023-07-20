@@ -17,8 +17,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault("Strongly attracts souls and stars");
-            DisplayName.SetDefault("Midnight's Reception");
+            // Tooltip.SetDefault("Strongly attracts souls and stars");
+            // DisplayName.SetDefault("Midnight's Reception");
         }
 
         public override void SetDefaults()

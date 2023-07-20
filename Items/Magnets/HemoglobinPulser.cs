@@ -18,8 +18,8 @@ namespace AssortedAttractors.Items.Magnets
         {
             base.SetStaticDefaults();
 
-            Tooltip.SetDefault(String.Empty);
-            DisplayName.SetDefault("Hemoglobin Pulser");
+            // Tooltip.SetDefault(String.Empty);
+            // DisplayName.SetDefault("Hemoglobin Pulser");
         }
 
         public override void SetDefaults()
