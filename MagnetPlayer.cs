@@ -57,7 +57,7 @@ namespace AssortedAttractors
             for (int j = 0; j < 400; j++)
             {
                 if (!Main.item[j].active || Main.item[j].noGrabDelay != 0 || Main.player[Main.item[j].playerIndexTheItemIsReservedFor] != this.Player
-                    || !ItemLoader.CanPickup(Main.item[j], this.Player))
+                    || !ItemLoader.CanPickup(Main.item[j], this.Player) || Main.item[j].shimmerTime > 0 || Main.item[j].shimmerWet)
                 {
                     continue;
                 }
@@ -127,12 +127,27 @@ namespace AssortedAttractors
                     float playerVelocityY = this.Player.velocity.Y;
                     float orbitModifier = 0.9f;
 
+                    float relSpeedNegativeX = 0;
+                    float relSpeedPositiveX = 0;
+                    float relSpeedNegativeY = 0;
+                    float relSpeedPositiveY = 0;
+
                     //Slow the item to destabilze any orbits
                     Main.item[j].velocity = Main.item[j].velocity * orbitModifier;
 
+                    //Allow speed to be relative to the player when item and player are travelling in the same direction
+                    if (distX > 0 && playerVelocityX > 0)
+                        relSpeedPositiveX = playerVelocityX;
+                    if (distY > 0 && playerVelocityY > 0)
+                        relSpeedPositiveY = playerVelocityY;
+                    if (distX < 0 && playerVelocityX < 0)
+                        relSpeedNegativeX = playerVelocityX;
+                    if (distY < 0 && playerVelocityY < 0)
+                        relSpeedNegativeY = playerVelocityY;
+
                     //Move the item toward the player
-                    Main.item[j].velocity.X = Utils.Clamp((Main.item[j].velocity.X + distX / distance * speed), -(maxSpeed + 4f) + playerVelocityX, maxSpeed + 4f + playerVelocityX);
-                    Main.item[j].velocity.Y = Utils.Clamp((Main.item[j].velocity.Y + distY / distance * speed), -(maxSpeed + 4f) + playerVelocityY, maxSpeed + 4f + playerVelocityY);
+                    Main.item[j].velocity.X = Utils.Clamp((Main.item[j].velocity.X + distX / distance * speed), -(maxSpeed + 4f) + relSpeedNegativeX, maxSpeed + 4f + relSpeedPositiveX);
+                    Main.item[j].velocity.Y = Utils.Clamp((Main.item[j].velocity.Y + distY / distance * speed), -(maxSpeed + 4f) + relSpeedNegativeY, maxSpeed + 4f + relSpeedPositiveY);
 
                     continue;
                 }

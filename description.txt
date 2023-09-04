@@ -23,5 +23,9 @@ Assorted Attractors integrates with CalamityMod, adding additional higher tier m
 	- After Skeletron has been defeated the Goblin Tinkerer will now sell the Treasure Magnet when in the underworld
 ## [1.2.0] - 2023-07-20
 	- Update to Tmodloader preview 1.4.4
+## [1.2.1] - 2023-09-04
+	- Prevent Magnet from picking up items that have not finished shimmering yet
+		- the above change may lead to the items not being picked up correctly, just toggle the magnet to fix this 
+	- Fixed a glitch that caused weird behaviour if the player moved toward an item faster than the magnet could accelerate it
 
 GitHub: https://github.com/YakosWG/AssortedAttractors
