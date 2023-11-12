@@ -44,7 +44,7 @@ namespace AssortedAttractors.NPCs
                 }, Condition.InSkyHeight);
             }
             //Add Treasure Magnet to Gobling Tinkerer shop if he is in the underworld and Skeletron has been defeated
-            else if ((shop.NpcType == NPCID.GoblinTinkerer) && NPC.downedBoss3 && Main.LocalPlayer.ZoneUnderworldHeight)
+            else if ((shop.NpcType == NPCID.GoblinTinkerer))
             {
                 shop.Add(new Item(ItemID.TreasureMagnet)
                 {

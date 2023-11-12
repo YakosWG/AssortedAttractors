@@ -27,5 +27,7 @@ Assorted Attractors integrates with CalamityMod, adding additional higher tier m
 	- Prevent Magnet from picking up items that have not finished shimmering yet
 		- the above change may lead to the items not being picked up correctly, just toggle the magnet to fix this 
 	- Fixed a glitch that caused weird behaviour if the player moved toward an item faster than the magnet could accelerate it
+## [1.2.2] - 2023-11-12
+	- Fixed an issue where the Goblin Tinkerer did not sell the magnet in multiplayer
 
 GitHub: https://github.com/YakosWG/AssortedAttractors
