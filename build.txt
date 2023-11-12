@@ -1,4 +1,4 @@
 displayName = Assorted Attractors
 author = Yako
-version = 1.2.1
+version = 1.2.2
 weakReferences = CalamityMod@2.0.3.4
