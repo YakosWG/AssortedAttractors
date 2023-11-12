@@ -27,5 +27,13 @@ Assorted Attractors integrates with CalamityMod, adding additional higher tier m
 	- Tidal Force "in water" buff is now relative (previously it was a flat increase, causing it to behave weirdly with certain config settings)
 	- The Merchant will now sell a lucky horseshoe when he's on a sky island
 	- After Skeletron has been defeated the Goblin Tinkerer will now sell the Treasure Magnet when in the underworld
+## [1.2.0] - 2023-07-20
+	- Update to Tmodloader preview 1.4.4
+## [1.2.1] - 2023-09-04
+	- Prevent Magnet from picking up items that have not finished shimmering yet
+		- the above change may lead to the items not being picked up correctly, just toggle the magnet to fix this 
+	- Fixed a glitch that caused weird behaviour if the player moved toward an item faster than the magnet could accelerate it
+## [1.2.2] - 2023-11-12
+	- Fixed an issue where the Goblin Tinkerer did not sell the magnet in multiplayer
 
 sorry for not maintaining the github changelog for a while
